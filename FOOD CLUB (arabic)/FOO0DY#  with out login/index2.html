@@ -24,6 +24,7 @@
 
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
+    <script src="register.js"></script>
 </head>
 
 <body>
@@ -41,13 +42,13 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
+                                            <input class="input--style-5" type="text" name="first_name" id="fullname">
                                             <label class="label--desc">الاسم</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
+                                            <input class="input--style-5" type="text" name="last_name" id="category">
                                             <label class="label--desc">الفئة</label>
                                         </div>
                                     </div>
@@ -58,7 +59,7 @@
                             <div class="name">العنوان</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="company">
+                                    <input class="input--style-5" type="text" name="company" id="location">
                                 </div>
                             </div>
                         </div>
@@ -66,7 +67,23 @@
                             <div class="name">البريد الالكتروني</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" id="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">كلمة السر</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email"  id="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">تأكيد كلمة السر</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password"  id="comfirmpassword">
                                 </div>
                             </div>
                         </div>
@@ -76,12 +93,12 @@
                                 <div class="row row-refine">
                                     <div class="col-3">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="area_code">
+                                            <input class="input--style-5" type="text" name="area_code" id="areaphone">
                                             <label class="label--desc">رمز المنطقة</div>
                                     </div>
                                     <div class="col-9">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone">
+                                            <input class="input--style-5" type="text" name="phone" id="phone">
                                             <label class="label--desc"> الموبايل</label>
                                         </div>
                                     </div>
@@ -90,7 +107,8 @@
                         </div>
                        
                         <div>
-                            <a href="RESADMIN/pages/product/addproduct.html"><button class="btn btn--radius-2 btn--red" type="button" >تسجيل</button></a>
+                           <!-- <a href="RESADMIN/pages/product/addproduct.html"></a>-->
+                                <button class="btn btn--radius-2 btn--red" type="button" onclick="requst()" >تسجيل</button>
                         </div>
                     </form>
                 </div>
