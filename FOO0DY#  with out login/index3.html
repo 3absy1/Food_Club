@@ -74,16 +74,16 @@
 					<div class="form sign-in">
 						<div class="input-group">
 							<i class='bx bxs-user'></i>
-							<input type="email" id="emaill" placeholder="Username">
+							<input type="text" id="emaill" placeholder="Email" name="emaill">
 						</div>
 						<div class="input-group">
 							<i class='bx bxs-lock-alt'></i>
-							<input type="password" id="passwordd" placeholder="Password">
+							<input type="password" id="passwordd" placeholder="Password" name="passwordd">
 						</div>
 						<!--<a href="E:/Foooody%23/FOO0DY%23/index1.html">-->
-							<button onclick="signIn()" id="signIp">Sign in</button>
+							<button type="submit" id="signIn" name="signin">Sign in</button>
 						
-					</a> 
+					
 						
 						<p>
 							<span>
@@ -182,8 +182,8 @@
 <script type="module">
 	// Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-	import { getDatabase ,set ,ref } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-	import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+	import { getDatabase ,set ,ref,update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+	import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 
 	// TODO: Add SDKs for Firebase products that you want to use
@@ -216,7 +216,7 @@
 
 		createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    // Signed in 
+    // Signed up 
     const user = userCredential.user;
 	set(ref(database, 'users/' + user.uid),{
 		username: username,
@@ -226,8 +226,6 @@
 		birthday:birthday,
 		phone: phone,
 
-
-
 	})
 	alert('user created!')
     // ...
@@ -235,14 +233,66 @@
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-	alert('errorMessage');
+	alert(errorMessage);
     // ..
   });
-
-
-
-
 	});
+
+	//**************************************************************
+
+	//sign in *******************************************************
+
+	signIn.addEventListener('click',(e) =>{
+     var emaill = document.getElementById('emaill').value;
+     var passwordd = document.getElementById('passwordd').value;
+
+
+	 signInWithEmailAndPassword(auth, emaill, passwordd)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+
+	const dt=new Date();
+	update(ref(database, 'users/' + user.uid),{
+	last_login: dt,
+})
+
+	alert('User Login Successful')
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+	alert(errorMessage);
+    // ..
+  });
+	});
+
+// 	signIn.addEventListener('click',(e) =>{
+// 	var emaill = document.getElementById('emaill').value;
+//     var passwordd = document.getElementById('passwordd').value;
+// 	signInWithEmailAndPassword(auth, emaill, passwordd)
+//     .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+
+// 	const dt=new Date();
+// 	updata(ref(database, 'users/' + user.uid),{
+// 	last_login_date:dt,
+// })
+// alert('User Login Successful');
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+// 	alert('errorMessage');
+
+//   });
+
+
+// 	});
+
 
 
   </script>
