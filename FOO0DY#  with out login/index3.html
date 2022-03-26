@@ -213,8 +213,23 @@
      var birthday= document.getElementById('birthday').value;
      var phone= document.getElementById('phone').value; 
 
+	 if(valdition_field(username)==false||valdition_field(birthday)==false||valdition_field(phone)==false||valdition_field(confirmpassword)==false){
+      alert('one or more fields is Outta Line')
+      return
+     }
+	//  else if(valdition_email(email)==false || valdition_password(password)==false){
+    //   alert('Email and Password is Outta Line')
+    //   return
+    //   //don't run the code 
 
-		createUserWithEmailAndPassword(auth, email, password)
+    // }
+	else if(password!=confirmpassword){
+		alert('password not the same')
+		return
+	}
+	 else{
+
+	createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -236,6 +251,7 @@
 	alert(errorMessage);
     // ..
   });
+}
 	});
 
 	//**************************************************************
@@ -267,6 +283,36 @@
     // ..
   });
 	});
+
+	 //valdition
+	 function valdition_email(email){
+   expression= /^[^@]+@\w+(\.\w+)+\w$/;
+   if(expression.test(email) == true){
+     return true
+   }else{
+     return false
+   }
+  }
+  function valdition_password(password){
+    if (password<=8){
+      return false
+    }else{
+      return true
+    }
+  }
+  function valdition_field(filed){
+    if(filed==null){
+      return false
+    }
+    if(filed<=0){
+      return false
+    }else{
+      return true
+    }
+  }
+
+
+
 
 // 	signIn.addEventListener('click',(e) =>{
 // 	var emaill = document.getElementById('emaill').value;
