@@ -5,11 +5,11 @@ function requst(){
      comfirmpassword= document.getElementById('comfirmpassword').value;
      areaphone= document.getElementById('areaphone').value;
      phone= document.getElementById('phone').value; 
-     location= document.getElementById('location').value; 
+     direction= document.getElementById('direction').value; 
      category= document.getElementById('category').value; 
 
      
-     if(valdition_field(fullname)==false||valdition_field(areaphone)==false||valdition_field(phone)==false||valdition_field(location)==false||valdition_field(category)==false ){
+     if(valdition_field(fullname)==false||valdition_field(areaphone)==false||valdition_field(phone)==false||valdition_field(direction)==false||valdition_field(category)==false ){
       alert('one or more fields is Outta Line')
       return
      }
