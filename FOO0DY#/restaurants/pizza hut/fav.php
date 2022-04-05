@@ -43,4 +43,4 @@
             $insert->execute ([$userid, $contentid]);
         }
     }
-    ?>
+?>
