@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Food Club</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/274506004_436002001581432_7956343886707801994_n.jpg">
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">When Admin accept your permission we will send you code in your email </h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="form-row">
+                            <div class="name">Enter Code <br></div>
+                            <br>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="codee">
+                                </div>
+                            </div>
+                        </div>          
+                    </form>
+                    <button class="btn btn--radius-2 btn--red"  id="register" type="submit" >register</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+    
+
+</body>
+<script type="module">
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+	import { getDatabase ,set ,ref} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+	import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	const firebaseConfig = {
+	  apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
+	  authDomain: "finalproject-93617.firebaseapp.com",
+	  databaseURL: "https://finalproject-93617-default-rtdb.firebaseio.com",
+	  projectId: "finalproject-93617",
+	  storageBucket: "finalproject-93617.appspot.com",
+	  messagingSenderId: "429854078677",
+	  appId: "1:429854078677:web:3b8bd691663d9e918b945c"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const database = getDatabase(app);
+	const auth = getAuth();
+
+	register.addEventListener('click',(e) =>{
+    var codee = document.getElementById('codee').value;
+  
+
+    if(valdition_field(codee)==false){
+      alert('one or more fields is Outta Line')
+      return
+     }
+	 else{
+
+	createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+	set(ref(database, 'restaurant/' + user.uid),{
+		fullname: fullname,
+		email:email,
+		password:password,
+		comfirmpassword:comfirmpassword,
+		direction:direction,
+		phone: phone,
+        category:category,
+
+	})
+	alert('Send Requst Please Wait...!');
+	window.location.href="RESADMIN/pages/product/addproduct.html";
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+	alert(errorMessage);
+    // ..
+  });
+}
+	});
+
+
+
+	 //valdition
+// 	 function valdition_email(email){
+//    expression= /^[^@]+@\w+(\.\w+)+\w$/;
+//    if(expression.test(email) == true){
+//      return true
+//    }else{
+//      return false
+//    }
+//   }
+//   function valdition_password(codee){
+//     if (password<=6){
+//       return false
+//     }else{
+//       return true
+//     }
+//   }
+  function valdition_field(filed){
+    if(filed==null||filed<=6){
+      return false
+    }
+    if(filed<=0||filed<=6){
+      return false
+    }else{
+      return true
+    }
+  }
+
+  </script>
+
+</html>
+<!-- end document-->
