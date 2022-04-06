@@ -809,21 +809,19 @@ pre{
   background: #fff;
   border-bottom: 1px solid rgba(0,0,0,.1);
   padding: 0 30px;
-  width: 1261px;
+  
 }
 .navbar .navbar-nav li a:hover{
   background: transparent;
   color: #374eae;
 }
-.ms-navbar .ms-nav-link{
 
-}
 .ms-aside-toggler,
 .ms-nav-toggler{
   padding: .25rem .75rem;
   font-size: 1.25rem;
   line-height: 1;
-  background-color: transparent;
+  background-color: black;
   border: 1px solid transparent;
   border-radius: .25rem;
   cursor: pointer;
@@ -4759,9 +4757,7 @@ border: 0;
   border: 1px solid #ff0018;
   color: #ff0018;
 }
-.ms-star-rating.misc-number{
 
-}
 .ms-star-rating.misc-number .ms-rating-item{
   margin: 0;
   border-radius: 0;

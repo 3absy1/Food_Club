@@ -748,8 +748,7 @@ input {
   background: #fff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  height: 656px;
-    margin-top: -40px;
+   margin-top: 90px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
@@ -782,3 +781,8 @@ input {
   background-color: #53e88c;
 
 }
+#code{
+  height: 656px;
+  margin-top: -40px;
+}
+

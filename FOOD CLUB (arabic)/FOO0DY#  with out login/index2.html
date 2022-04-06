@@ -31,7 +31,7 @@
 <body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
-            <div class="card card-5">
+            <div class="card card-5" id="code">
                 <div class="card-heading">
                     <h2 class="title">تسجيل المطعم</h2>
                 </div>
@@ -166,7 +166,7 @@
     var category= document.getElementById('category').value; 
 
     if(valdition_field(fullname)==false||valdition_field(areaphone)==false||valdition_field(phone)==false||valdition_field(direction)==false||valdition_field(category)==false ){
-      alert('one or more fields is Outta Line')
+      alert('يوجد مكان فارغ ')
       return
      }
 	//  else if(valdition_email(email)==false || valdition_password(password)==false){
@@ -176,7 +176,7 @@
 
     // }
 	else if(password!=comfirmpassword){
-		alert('password not the same')
+		alert('الباسورد ليسوا متشابهين')
 		return
 	}
 	 else{
