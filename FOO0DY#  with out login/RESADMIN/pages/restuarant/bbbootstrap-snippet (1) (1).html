@@ -75,7 +75,7 @@
                     <span id="phone"></span>
                     <div class="col-md-12"><label class="labels">Mobile Number</label><input id="mymobile" type="text" class="form-control" placeholder="enter phone number" value=""></div>
                     <span id="birthday"></span>
-                    <div class="col-md-12"><label class="labels">birthday</label><input id="birth" type="text" class="form-control" placeholder="enter birthday " value=""></div>
+                    <!-- <div class="col-md-12"><label class="labels">birthday</label><input id="birth" type="text" class="form-control" placeholder="enter birthday " value=""></div> -->
                     <!-- <div class="col-md-12"><label class="labels">Email</label><input id="mail" type="text" class="form-control" placeholder="enter email " value=""></div> -->
                     <span id="address"></span>
 
@@ -136,28 +136,27 @@
                                   var pass=localStorage.getItem("textvalue");
                                   var idd=localStorage.getItem("userid");
                           //get login data 
-                          firebase.database().ref().child("users").orderByChild("email").equalTo(pass).once("value", function (snapshot) {        
+                          firebase.database().ref().child("restaurant").orderByChild("email").equalTo(pass).once("value", function (snapshot) {        
                                 snapshot.forEach(function(childSnapshot) {
                           
                                   var cellNum = childSnapshot.val().CellNum;  
-                                  var username = childSnapshot.child("username").val();
-                                  var birthday = childSnapshot.child("birthday").val();
+                                  var username = childSnapshot.child("fullname").val();
+                                //   var birthday = childSnapshot.child("birthday").val();
                                   var phone = childSnapshot.child("phone").val();
-                                  var id = childSnapshot.child("id").val();
-                                  var address = childSnapshot.child("address").val();
+                                //   var id = childSnapshot.child("id").val();
+                                  var address = childSnapshot.child("direction").val();
 
                                  
                                   $("#name").append( username );           
                                   $("#email").append( pass );  
                                   $("#phone").append( phone ); 
-                                  $("#birthday").append( birthday );   
+                                //   $("#birthday").append( birthday );   
                                   $("#address").append( address );  
 
 
                                   updata.addEventListener('click',(e)=>{
                                     var name=document.getElementById("yourname").value;
                                     var yourphone=document.getElementById("mymobile").value;
-                                    var yourbirth=document.getElementById("birth").value;
                                     var youraddress=document.getElementById("myaddress").value;
                                     var yourpassword=document.getElementById("mypassword").value;
                                     var yourconfirm=document.getElementById("myconfirmpassword").value;
@@ -173,34 +172,29 @@
                                 else{                        
                               updata.addEventListener('click',(e)=>{
                                 var name=document.getElementById("yourname").value;
-                                  var firebaseRef= firebase.database().ref('users/'+idd );
-                                    firebaseRef.child("username").set(name);
+                                  var firebaseRef= firebase.database().ref('restaurant/'+idd );
+                                    firebaseRef.child("fullname").set(name);
                                  
                                 });
                                 updata.addEventListener('click',(e)=>{
                                     var yourphone=document.getElementById("mymobile").value;
-                                    var firebaseRef= firebase.database().ref('users/'+idd );
+                                    var firebaseRef= firebase.database().ref('restaurant/'+idd );
                                     firebaseRef.child("phone").set(yourphone);
                             });
                             updata.addEventListener('click',(e)=>{
-                                  var yourbirth=document.getElementById("birth").value;
-                                var firebaseRef= firebase.database().ref('users/'+idd );
-                                    firebaseRef.child("birthday").set(yourbirth);
-                            });
-                            updata.addEventListener('click',(e)=>{
                                   var youraddress=document.getElementById("myaddress").value;
-                                var firebaseRef= firebase.database().ref('users/'+idd );
-                                    firebaseRef.child("address").set(youraddress);
+                                var firebaseRef= firebase.database().ref('restaurant/'+idd );
+                                    firebaseRef.child("direction").set(youraddress);
                             });
                             updata.addEventListener('click',(e)=>{
                                   var yourpassword=document.getElementById("mypassword").value;
-                                var firebaseRef= firebase.database().ref('users/'+idd );
+                                var firebaseRef= firebase.database().ref('restaurant/'+idd );
                                     firebaseRef.child("password").set(yourpassword);
                             });
                             updata.addEventListener('click',(e)=>{
                                   var yourconfirm=document.getElementById("myconfirmpassword").value;
-                                var firebaseRef= firebase.database().ref('users/'+idd );
-                                    firebaseRef.child("confirmpassword").set(yourconfirm);
+                                var firebaseRef= firebase.database().ref('restaurant/'+idd );
+                                    firebaseRef.child("comfirmpassword").set(yourconfirm);
                             });
                             alert('updata Successful');
 

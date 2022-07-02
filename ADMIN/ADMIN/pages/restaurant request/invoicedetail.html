@@ -256,17 +256,21 @@
             </ol>
           </nav>
           <div class="ms-panel" >
-            <div class="ms-panel-header header-mini" >
+            <div class="ms-panel-header header-mini" id="sender" >
               <h6>request</h6>
               <h6></h6>
               <br>
+              <!-- <form  action="https://formspree.io/f/meqnnlww" method="POST"> -->
+                <form onsubmit="sendemail(); reset(); return false;" >
+                
+                <!-- <input type="text" name="Name"> -->
               <ul class="invoice-date" id="list">
+                <!-- <div  id="recaptcha-container"></div> -->
               </ul>
-              <div class="d-flex justify-content-between">       
-
-              </div>
+            </form>
+              
             </div>
-            <div class="ms-panel-body" >     
+            <div class="ms-panel-body">     
                      
               <!-- <table>
                   <thead>
@@ -341,17 +345,38 @@
   </script>
   <script src="../../assets/js/Chart.Financial.js">
   </script>
+  <!--<script src="https://smtpjs.com/v3/smtp.js"></script>-->
   <!-- Page Specific Scripts Finish -->
   <!-- Costic core JavaScript -->
   <script src="../../assets/js/framework.js"></script>
   <!-- Settings -->
   <script src="../../assets/js/settings.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script> -->
 
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+function sendEmail() {
+	Email.send({
+	Host: "smtp.gmail.com",
+	Username : "<yossfeabdaslm123@gmail.com>",
+	Password : "<Haiakil34>",
+	To : 'yossfeabdaslm123@gmail.com',
+	From : "yossfe@gmail.com",
+	Subject : "yousef",
+	Body : "name:yousef",
+	}).then(
+		message => alert("mail sent successfully")
+	);
 
-  <script id="MainScript">
+    }
+  </script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script> -->
+
+</body>
+ <script id="MainScript">
     // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
     // import { getDatabase,ref } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
     // import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
@@ -368,7 +393,36 @@
     
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    // firebase.analytics();
+    // const auth = firebase.auth()
+    // const app=initializeApp(firebaseConfig);
+    
+    //****************phone code *****************//
+    // function render(){
+    //   window.recaptchaVerifier= new firebase.auth.RecaptchaVerifier('')
+    // }
+    // function phoneAuth(){
+    //   function SelectAllData(){
+    //   firebase.database().ref('restaurant').once('value',
+    //   function(AllRecords){
+    //     AllRecords.forEach(
+    //       function(CurrentRecord){
+    //         var pho=CurrentRecord.val().phone;
+           
   
+    //       }
+  
+    //     );
+  
+    //   });
+    // }
+      
+   // }
+    
+    //*****************end phone code************//
+
+
+
     // ****************Get All Data *************//
     function SelectAllData(){
       firebase.database().ref('restaurant').once('value',
@@ -382,9 +436,11 @@
             var cat=CurrentRecord.val().category;
             var compas=CurrentRecord.val().comfirmpassword;
             var pass=CurrentRecord.val().password;
+            var phoo=CurrentRecord.val().phone;
   
             // AddItemsToTable(dir,mail,name,pho,cat,compas,pass);
             AddItemsTolist(dir,mail,name,pho,cat,compas,pass);
+            // phoneverifity();
 
           
           }
@@ -393,6 +449,8 @@
   
       });
     }
+  
+    
      window.onload = SelectAllData;
     function AddItemsTolist(dir,mail,name,pho,cat,compas,pass){
       var ul= document.getElementById('list');
@@ -409,6 +467,7 @@
       const bt=document.createElement('button');
       const p=document.createElement('h1');
       const pp=document.createElement('p');
+      const di=document.createElement('div');
       
 
 
@@ -422,6 +481,7 @@
       ppp.innerHTML='';
       //*********************************************
       btn.innerHTML='Accept';
+      btn.type="submit";
       btn.style.color="#ffff";
       btn.style.backgroundColor="#53e88c";
       btn.style.cursor="pointer";
@@ -431,6 +491,9 @@
       btn.style.marginLeft="770px";
       btn.style.marginRight="0.5rem";
       btn.style.padding="0.625rem ";
+      // btn.addEventListener("click",phoneAuth);
+      // btn.onclick=function(){phoneAuth()};
+      btn.id="phoneaccept";
       //*************************************************************
       bt.innerHTML='Reject';
       bt.style.color="#ffff";
@@ -445,7 +508,9 @@
       //**************************
       p.innerHTML='';
       pp.innerHTML='';
-      
+      di.innerHTML='';
+      di.id="recaptcha-container";
+      di.style.height="50px";
      
     
 
@@ -461,10 +526,104 @@
       ul.appendChild(bt);
       ul.appendChild(p);
       ul.appendChild(pp);
+      ul.appendChild(di);
+
+
+    
       
-
-
     }
+//     function phoneverifity(){
+//     // var _pho=document.getElementById(phoo);
+//     var phoneNumber = "+201224888722";
+
+//     var loginphone=document.getElementById("phoneaccept");
+
+//     loginphone.onclick=function(){
+
+//       window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+//         'size': 'normal',
+//         'callback': function(response) {
+//             // reCAPTCHA solved, allow signInWithPhoneNumber.
+//             // ...
+//         },
+//         'expired-callback': function() {
+//             // Response expired. Ask user to solve reCAPTCHA again.
+//             // ...
+//         }
+//         });
+//         var cverify=window.recaptchaVerifier;
+
+// firebase.auth().signInWithPhoneNumber(phoneNumber,cverify).then(function(response){
+//     console.log(response);
+//     window.confirmationResult=response;
+// }).catch(function(error){
+//     console.log(error);
+// })
+// }
+// }
+
+
+       
+
+//     function phoneverifity(phoo){
+// //     var _pho=document.getElementById(phoo);
+//      var loginphone=document.getElementById("phoneaccept");
+
+//    loginphone.onclick=function(){
+
+//     firebase.auth().settings.appVerificationDisabledForTesting = true;
+
+// var phoneNumber = "+2001224888722";
+// var testVerificationCode = "123456";
+
+// // This will render a fake reCAPTCHA as appVerificationDisabledForTesting is true.
+// // This will resolve after rendering without app verification.
+// var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+// // signInWithPhoneNumber will call appVerifier.verify() which will resolve with a fake
+// // reCAPTCHA response.
+// firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+//     .then(function (confirmationResult) {
+//       // confirmationResult can resolve with the fictional testVerificationCode above.
+//       return confirmationResult.confirm(testVerificationCode)
+      
+//     }).catch(function (error) {
+//       // Error; SMS not sent
+//       // ...
+//     });
+//   }
+// }
+
+
+
+
+    //*********************** start phone **************************
+
+    // window.onload=function(){
+    //   render();
+    // }
+   
+    // function render(){
+    //   window.recaptchaVerifier= new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //   recaptchaVerifier.render();
+
+    // }
+//     function phoneAuth() {
+//     //get the number
+//     // var number = document.getElementById('number').value;
+//     // alert(number);
+//     //it takes two parameter first one is number and second one is recaptcha
+//     firebase.auth().signInWithPhoneNumber("01224888722", window.recaptchaVerifier).then(function(confirmationResult) {
+//         //s is in lowercase
+//         window.confirmationResult = confirmationResult;
+//         coderesult = confirmationResult;
+//         console.log(coderesult);
+//         alert("Message sent");
+//     }).catch(function(error) {
+//         alert(error.message);
+//     });
+// }
+
+    //******************end phone***********************
     
      // function AddItemsToTable(dir,mail,name,pho,cat,compas,pass){
     //   var tbody=document.getElementById('tbody1');
@@ -501,9 +660,6 @@
   
   
     </script>
-
-  
-</body>
 
 
 

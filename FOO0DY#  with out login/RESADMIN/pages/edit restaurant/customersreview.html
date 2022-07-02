@@ -28,26 +28,34 @@
 
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
 
-  <!-- Sidebar Navigation Left -->
+  
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <a class="pl-0 ml-0 text-center" href="../../index.html">
-        <img src="../../assets/img/costic/costic-logo-216x62.png" alt="logo">
+      <a class="pl-0 ml-0 text-center" href="../restuarant/bbbootstrap-snippet (1) (1).html">
+        <span id="mainname"></span>
       </a>
     </div>
     <!-- Navigation -->
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
-       <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#invoice" aria-expanded="false" aria-controls="invoice"> <span><i class="fas fa-file-invoice fs-16"></i>Restaurants </span>
+      <!-- Dashboard -->
+     
+      <!-- product -->
+      <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="product"> <span><i class="fa fa-archive fs-16"></i>Menus </span>
         </a>
-        <ul id="invoice" class="collapse" aria-labelledby="invoice" data-parent="#side-nav-accordion">
-          <li> <a href="../restaurant request/invoicedetail.html">Requests</a> 
+        <ul id="product" class="collapse" aria-labelledby="product" data-parent="#side-nav-accordion">
+          
+        
+          <li> <a href="../product/addproduct.html">Add Product</a>
+          </li>
+          <li> <a href="../edit restaurant/customersreview.html">Update Menu</a>
           </li>
           
         </ul>
       </li>
-      <!-- Invoice end -->
+      <!-- product end -->
+      
       
       
       <!-- customers-->
@@ -55,122 +63,33 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#customer" aria-expanded="false" aria-controls="customer"> <span><i class="fas fa-user-friends fs-16"></i>Customers </span>
         </a>
         <ul id="customer" class="collapse" aria-labelledby="customer" data-parent="#side-nav-accordion">
-          <li> <a href="customersreview.html"> Complaint</a>
+          <li> <a href="../customer/customersreview.html">Customers Review</a>
           </li>
           
         </ul>
       </li>
-      <!-- Customers  end -->
-      
+      <!-- Customers  end -->  
+     
     </ul>
   </aside>
-    <!-- Navigation Bar -->
-    <nav class="navbar ms-navbar">
-
-      <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
-        
-      </div>
-
-      <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="../../index.html"><img src="../../assets/img/costic/costic-logo-84x41.png" alt="logo"> </a>
-      </div>
-
-      <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
-        <li class="ms-nav-item ms-search-form pb-0 py-0">
-          <form class="ms-form" method="post">
-            <div class="ms-form-group my-0 mb-0 has-icon fs-14">
-              <input type="search" class="ms-form-input" name="search" placeholder="Search here..." value="">
-              <i class="flaticon-search text-disabled"></i>
-            </div>
-          </form>
-        </li>
-        <li class="ms-nav-item dropdown">
-          <a href="#" class="text-disabled ms-has-notification" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-bell"></i></a>
-          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown">
-            <li class="dropdown-menu-header">
-              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Notifications</span></h6><span class="badge badge-pill badge-info">4 New</span>
-            </li>
-            <li class="dropdown-divider"></li>
-            <li class="ms-scrollable ms-dropdown-list">
-              <a class="media p-2" href="#">
-                <div class="media-body">
-                  <span>pizza hut added new dish to the menu</span>
-                  <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 30 seconds ago</p>
-                </div>
-              </a>
-              <a class="media p-2" href="#">
-                <div class="media-body">
-                  <span>kfc remove dish from the menu</span>
-                  <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 45 minutes ago</p>
-                </div>
-              </a>
-              <a class="media p-2" href="#">
-                <div class="media-body">
-                  <span>buffalo burgeradded new dish to the menu  </span>
-                  <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 2 hours ago</p>
-                </div>
-              </a>
-              <a class="media p-2" href="#">
-                <div class="media-body">
-                  <span>mcdonald's remove dish from the menu</span>
-                  <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 1 day ago</p>
-                </div>
-              </a>
-            </li>
-            <li class="dropdown-divider"></li>
-            <li class="dropdown-menu-footer text-center">
-              <a href="#">View all Notifications</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="ms-nav-item ms-nav-user dropdown">
-          <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="../../assets/img/costic/customer-6.jpg" alt="people"> </a>
-          <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
-            <li class="dropdown-menu-header">
-              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, JOE (ADMIN)</span></h6>
-            </li>
-           
-              <a class="media fs-14 p-2" href="../prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
-        <span class="ms-toggler-bar bg-primary"></span>
-        <span class="ms-toggler-bar bg-primary"></span>
-        <span class="ms-toggler-bar bg-primary"></span>
-      </div>
-
-    </nav>
-
+      
+  
   <!-- Main Content -->
   <main class="body-content">
 
     <div class="ms-content-wrapper">
       
       <div class="ms-content-wrapper">
-        <div class="row">
-          <div class="col-12">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb pl-0">
-                <li class="breadcrumb-item active" aria-current="page">Complaint</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
+    
         <div class="ms-content-wrapper">
           <div class="row">
-           
             <!-- Recent Support Tickets -->
             <div class="col-xl-12 col-md-12">
               <div class="ms-panel ms-panel-fh">
-                <div class="ms-panel-body p-0">
-                  <ul id="list">
+                <ul id="list">
 
-                  </ul>
-                </div>
+                </ul>
+              
               </div>
             </div>
           </div>
@@ -282,6 +201,7 @@
   <script src="../../assets/js/framework.js"></script>
   <!-- Settings -->
   <script src="../../assets/js/settings.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
@@ -313,32 +233,36 @@
     const auth = firebase.auth();
     const database=firebase.database();
     // const auth = getAuth();
+    var pass=localStorage.getItem("textvalue");
     var id=localStorage.getItem("userid");
 
-    //get login data 
-// firebase.database().ref().child("restaurant").once("value", function (snapshot) {        
-//   snapshot.forEach(function(childSnapshot) {
+    //******************************************get login data 
+firebase.database().ref().child("restaurant").orderByChild("email").equalTo(pass).once("value", function (snapshot) {        
+  snapshot.forEach(function(childSnapshot) {
 
-//     var cellNum = childSnapshot.val().CellNum;  
-//     var username = childSnapshot.val();
+    var cellNum = childSnapshot.val().CellNum;  
+    var username = childSnapshot.child("fullname").val();
    
-//   });
-  
-// });
+    $("#mainname").append( username ); 
+
+  }); 
+});
 
 // ****************Get All Data **********************************//
 function SelectAllData(){
-      firebase.database().ref('Admin/'+'/' +'reviews').once('value',
+      firebase.database().ref('restaurant/'+id+'/' +'menu').once('value',
       function(AllRecords){
         AllRecords.forEach(
           function(CurrentRecord){
-            var name=CurrentRecord.val().name;
-            var con=CurrentRecord.val().review_content;
-
-
-            AddItemsTolist(name,con);
-
- 
+            var dis=CurrentRecord.val().Description;
+            var name=CurrentRecord.val().productname;
+            var cat=CurrentRecord.val().Category;
+            var price=CurrentRecord.val().product_price;
+            var size=CurrentRecord.val().productsize;
+            var image=CurrentRecord.val().imagemenu;
+            
+              AddItemsTolist(dis,price,name,size,cat,image);
+           
           }
   
         );
@@ -346,36 +270,69 @@ function SelectAllData(){
       });
     }
     window.onload = SelectAllData;
-    function AddItemsTolist(name,con){
-      var ul= document.getElementById('list');    
-      var _name=document.createElement('h6');
-      var _con=document.createElement('p');
-      var div=document.createElement('div');
+    function AddItemsTolist(dis,price,name,size,cat,image){
+      var ul= document.getElementById('list');
+     
+      var _name=document.createElement('li');
+      var _price=document.createElement('li');
+      var _category=document.createElement('li');
+      var _dis=document.createElement('li');
+      var _image=document.createElement('li');
+      var _size=document.createElement('li');
+      const di=document.createElement('div');
+      var btn=document.createElement('a');
+      const div=document.createElement('div');
 
 
 
-
-      _name.innerHTML=name;
-      _con.innerHTML=con;
+      di.innerHTML='';
+      di.style.height="30px";
       div.innerHTML='';
-      div.style.height="30px";
+      div.style.height="15px";
+      _name.innerHTML='Product Name:'+name;
+      _dis.innerHTML='Description:'+dis;
+      _price.innerHTML='price:'+price;
+      _size.innerHTML='size:'+size;
+      // _pass.innerHTML='Password:'+pass;
+      // _comfirmpass.innerHTML='Confirm Password:'+compas;
+      _category.innerHTML='Category:'+cat;
 
+      btn.innerHTML='Edit Menu';
+      btn.type="submit";
+      btn.style.color="#ffff";
+      btn.style.backgroundColor="#53e88c";
+      btn.style.cursor="pointer";
+      btn.style.borderColor="#53e88c";
+      btn.style.borderRadius="1.25rem";
+      btn.style.minWidth="110px";
+      btn.style.height="25px";
+      btn.style.textAlign="center";
+      btn.id="mybutton";
+      // document.getElementById("mybutton").onclick=function(){
+      //   location.href="product/addproduct.html";
+      // }
+      btn.href="product/addproduct.html";  
+      btn.addEventListener('click',function handleClick(){
+        
+            localStorage.setItem("mealname",name);
 
-	  
+  
+
+      }) 
 
       ul.appendChild(_name);
-      ul.appendChild(_con);
+      ul.appendChild(_price);
+      ul.appendChild(_dis);
+      ul.appendChild(_size);
+      ul.appendChild(_category);
       ul.appendChild(div);
-
+      ul.appendChild(btn);
+      ul.appendChild(di);
 
 
   
     }
 
 </script>
-
 </body>
-
-
-<!-- Mirrored from slidesigma.com/themes/html/costic/pages/customer/customersreview.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:12:01 GMT -->
 </html>

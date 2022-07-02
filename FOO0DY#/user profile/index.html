@@ -48,7 +48,14 @@
           </div>
       
           <div class="profile-card__cnt js-profile-cnt">
-            <div class="profile-card__name">Yousef Abdelsalam</div>
+            <div class="profile-card__name">
+              <!-- <ul id="list"></ul> -->
+              <table id="table">
+              <tbody id="list">
+
+              </tbody>
+            </table>
+            </div>
             <!-- <p id="data"></p> -->
             
             <div class="profile-card-loc">
@@ -56,9 +63,11 @@
                 <svg class="icon"><use xlink:href="#icon-location"></use></svg>
               </span>
       
-              <span class="profile-card-loc__txt">
-               cairo, egypt
+              <span id="address" class="profile-card-loc__txt">
+              
               </span>
+              <!-- <span id="test"></span> -->
+
             </div>
             <br>
             <div>
@@ -76,7 +85,7 @@
       
             </div>
             
-      
+<!--       
             <div class="profile-card-social">
                 <div class="profile-card-inf__txt">0 pts &nbsp &nbsp &nbsp</div> 
                
@@ -84,11 +93,11 @@
 
                 <div class="profile-card-inf__txt">0 Photos</div> 
             
-            </div>
+            </div> -->
       
             <div class="profile-card-ctr">
-              <button class="profile-card__button button--blue js-message-btn">Reviews</button>
-              <button class="profile-card__button button--orange">Photos</button>
+              <!-- <button class="profile-card__button button--blue js-message-btn">Reviews</button>
+              <button class="profile-card__button button--orange">Photos</button> -->
             </div>
           </div>
       
@@ -139,6 +148,9 @@
           </symbol>
         </defs>
       </svg>
+      <!-- <script>
+        document.getElementById("test").innerHTML=localStorage.getItem("textvalue");
+      </script> -->
       <script src="user.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
@@ -147,8 +159,91 @@
 			<script src="js/jquery.scrollex.min.js"></script>
 			<script src="js/util.js"></script>
       <script src="js/main.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+      <script id="MainScript">
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        // import { getDatabase,ref } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+        // import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+          // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
+          authDomain: "finalproject-93617.firebaseapp.com",
+          databaseURL: "https://finalproject-93617-default-rtdb.firebaseio.com",
+          projectId: "finalproject-93617",
+          storageBucket: "finalproject-93617.appspot.com",
+          messagingSenderId: "429854078677",
+          appId: "1:429854078677:web:3b8bd691663d9e918b945c"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // const auth = getAuth();
+        var pass=localStorage.getItem("textvalue");
+//get login data 
+firebase.database().ref().child("users").orderByChild("email").equalTo(pass).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+
+        var cellNum = childSnapshot.val().CellNum;  
+        var username = childSnapshot.child("username").val();
+        var address = childSnapshot.child("address").val();
+        // var birthday = childSnapshot.child("birthday").val();
+        // var phone = childSnapshot.child("phone").val();
+       
+        $("#list").append( username ); 
+        $("#address").append( address ); 
+
+                 
+      });                
+
+});
+
+
+      
+        // // ****************Get All Data *************//
+        // function SelectAllData(){
+        //   firebase.database().ref('users').once('value',
+        //   function(AllRecords){
+        //     AllRecords.forEach(
+        //       function(CurrentRecord){
+               
+        //         var name=CurrentRecord.val().fullname;
+             
+      
+        //         // AddItemsToTable(dir,mail,name,pho,cat,compas,pass);
+        //         AddItemsTolist(name);
+    
+              
+        //       }
+      
+        //     );
+      
+        //   });
+        // }
+        //  window.onload = SelectAllData;
+        // function AddItemsTolist(name){
+        //   var ul= document.getElementById('list');
+         
+        //   var _name=document.createElement('h5');
+         
+    
+    
+        //   _name.innerHTML=name;
+         
+         
+        
+    
+        //   ul.appendChild(_name);
+         
+          
+    
+    
+        // }
+        </script>
+    
       
 
 

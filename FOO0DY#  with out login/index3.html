@@ -30,6 +30,9 @@
 						<div class="input-group">
 							<i class='bx bx-mail-send'></i>
 							<input type="email" placeholder="Email"id="email" name="email">
+							<br><br>
+							<input type="text" placeholder="Address"id="address" name="address">
+
 						</div>
 						<div class="input-group">
 							<i class='bx bxs-lock-alt'></i>
@@ -84,7 +87,7 @@
 							<input type="password" id="passwordd" placeholder="Password" name="passwordd">
 						</div>
 						<!--<a href="E:/Foooody%23/FOO0DY%23/index1.html">-->
-							<button type="submit" id="signIn" name="signin">Sign in</button>
+							<button type="submit" id="signIn" name="signin" onclick="getdata()" >Sign in</button>
 						
 					
 						
@@ -108,10 +111,11 @@
 
 				<br>
 				<br>
-				<h2 id="sign"> or Continue With </h2>
+				<h2 id="sign"> OR </h2>
 				<div id="signin">
-				<a id="facebook" href="#"><img id="face" src="images/logo-facebook.png"  alt="images"></a>
-				<a id="google" href="#"><img id="google" src="images/goog.png" alt="images"></a>
+					<a id="facebook" href="index4.html">  as guest </a><br>
+					<a id="facebook" href="F:/Foooody%23@/FOO0DY%23%20%20with%20out%20login/simple-login-page-in-html%20(1)/simple-login-page-in-html/index.html"> Login as Restaurant </a>
+				<!-- <a id="google" href="#"><img id="google" src="images/goog.png" alt="images"></a> -->
 			    </div>
 				<div class="form-wrapper">
 		
@@ -153,6 +157,18 @@
 		<!-- END CONTENT SECTION -->
 	</div>
 <!-- partial -->
+<script>
+	function getdata(){
+	var fastname=document.getElementById("emaill").value;
+	localStorage.setItem("textvalue",fastname);
+	return false;
+  }
+//   function send(){
+// 	var fastname=document.getElementById("email").value;
+// 	localStorage.setItem("textvalue",fastname);
+// 	return false;
+//   }
+</script>
   <script  src="./script.js"></script>
   <script src="build/js/intlTelInput.js"></script>
   <script>
@@ -187,13 +203,14 @@
 	// Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 	import { getDatabase ,set ,ref,update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-	import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+	import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
   
 	// Your web app's Firebase configuration
+	
 	const firebaseConfig = {
 	  apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
 	  authDomain: "finalproject-93617.firebaseapp.com",
@@ -210,12 +227,21 @@
 	const auth = getAuth();
 
 	signUp.addEventListener('click',(e) =>{
+		// Generate a number between 0 and 10, including 10
+function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+let value1 = generateRandomInteger(1000);
      var email = document.getElementById('email').value;
      var password = document.getElementById('password').value;
      var username= document.getElementById('username').value;
      var confirmpassword= document.getElementById('confirmpassword').value;
      var birthday= document.getElementById('birthday').value;
      var phone= document.getElementById('phone').value; 
+	 var address= document.getElementById('address').value; 
+
+	 
 
 	 if(valdition_field(username)==false||valdition_field(birthday)==false||valdition_field(phone)==false||valdition_field(confirmpassword)==false){
       alert('one or more fields is Outta Line')
@@ -238,16 +264,19 @@
     // Signed up 
     const user = userCredential.user;
 	set(ref(database, 'users/' + user.uid),{
+		id:value1,
 		username: username,
 		email:email,
+		address:address,
 		password:password,
 		confirmpassword:confirmpassword,
 		birthday:birthday,
 		phone: phone,
 
+
 	})
-	alert('user created!');
-	window.location.href="F:/Foooody%23/FOO0DY%23/index1.html";
+	alert('user created! go back to signin page');
+	// location.href="F:/Foooody%23@/FOO0DY%23/index1.html";
     // ...
   })
   .catch((error) => {
@@ -272,14 +301,14 @@
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-
+    localStorage.setItem("useridd",user.uid);
 	const dt=new Date();
 	update(ref(database, 'users/' + user.uid),{
 	last_login: dt,
 })
 
 	alert('User Login Successful')
-    window.location.href="F:/Foooody%23/FOO0DY%23/index1.html";
+    location.href="F:/Foooody%23@/FOO0DY%23/index1.html";
 
 
     // ...
@@ -291,6 +320,17 @@
     // ..
   });
 	});
+	onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
 
 	 //valdition
 	 function valdition_email(email){

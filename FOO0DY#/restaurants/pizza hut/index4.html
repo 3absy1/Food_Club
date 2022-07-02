@@ -68,6 +68,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+	<!-- <link rel="stylesheet" href="menu_css/style.css"> -->
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -132,44 +133,50 @@
 	<link rel="stylesheet" href="./style.css">
 
 							<!--<div class="logo"><span class="icon fa-diamond"></span></div>-->
-							<h2>Pizza Hut</h2>
-							<p> Fast Food , Pizza <a href="http://html5up.net"></a></p>
-							<p><i class="fa fa-map-marker" aria-hidden="true"></i>
-								 Abbas El Akkad Street, Nasr City <a href="http://html5up.net"></a></p>
+							<h2 id="list"></h2>
+							<p id="catego"> </p>
+							<p id="locatio"><i class="fa fa-map-marker" aria-hidden="true"></i>
+								</p>
 								 <br>
 							
-							<input type="text" name="search" placeholder="Reviews">
-							<div class="rating">
+							<input id="review" type="text" name="search" placeholder="Reviews" >
+							<br>
+							<button type="button" id="post">post</button>
+							<div id="rate" class="rating">
 
 								<input type="radio" name="rating" id="r1">
-								<label for="r1"></label>
+								<label id="rat1" for="r1"></label>
 							   
 								<input type="radio" name="rating" id="r2">
-								<label for="r2"></label>
+								<label id="rat2" for="r2"></label>
 							   
 								<input type="radio" name="rating" id="r3">
-								<label for="r3"></label>
+								<label id="rat3" for="r3"></label>
 							   
 								<input type="radio" name="rating" id="r4">
-								<label for="r4"></label>
+								<label id="rat4" for="r4"></label>
 							   
 								<input type="radio" name="rating" id="r5">
-								<label for="r5"></label>
+								<label id="rat5" for="r5"></label>
 							   
 							   </div>
 							   <input type="checkbox" id="like"/>
-<label for="like">
+<label id="favvv" for="like">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"/>
 </svg>
 </label>
+<!-- <div>
+	<i  id="fav"></i>
+	<span id="favv">liked!</span>
+  </div> -->
 						</div>
 						
 					</section>
 
                    <!-- Start Menu -->
 				   
-				   <section id="two" class="wrapper alt spotlight style2">
+				   <!-- <section id="two" class="wrapper alt spotlight style2">
 						<div id="fh5co-menus" data-section="menu">
 							<div class="container">
 						<div class="row text-center fh5co-heading row-padded">
@@ -188,29 +195,50 @@
 								<div class="special-menu text-center">
 									<div class="button-group filter-button-group">
 										<button id="blac" class="active" data-filter="*">All</button>
-										<button id="blac" data-filter=".drinks">Pizza</button>
+										<button id="bla" data-filter=".drinks"></button>
 										<button id="blac" data-filter=".lunch">Drinks</button>
 										<button id="blac" data-filter=".dinner">Dessert</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row special-list">
-							<div class="col-lg-4 col-md-6 special-grid drinks">
-								<div class="gallery-single fix">
-									<img src="images/pizza1.jpg" class="img-fluid" alt="Image">
-									<div class="why-text">
-										<h4>Margarita</h4>
+						<div class="row special-list"> -->
+							<!-- <div class="col-lg-4 col-md-6 special-grid drinks"> -->
+								<!-- <div class="gallery-single fix"> -->
+									<!-- <img src="images/pizza1.jpg" class="img-fluid" alt="Image"> -->
+									<!-- <div class="why-text"> -->
+										
+										<!-- <h4>Margarita</h4>
 										<p>Go back to where it all began with the classic cheese and tomato base</p>
 										<h5>42.00 EGP </h5>
-										<div class="buttons"> <button id="cartt" class="cart-button"> <span class="add-to-cart"> Add to cart</span>  </button> </div>
-
-									</div>
+										<div class="buttons"> <button id="cartt" class="cart-button"> <span class="add-to-cart"> Add to cart</span>  </button> </div> -->
+									<!-- </div>
+								</div> -->
+							<!-- </div> -->
+						
+							<section id="two" class="wrapper alt spotlight style2">
+								<div id="fh5co-menus" data-section="menu">
+									<div id="fh5co-menuss" class="menu-box">
+						<div class="row row-padded">
+							<div class="col-md-6">
+								<div class="fh5co-food-menu to-animate-2">		 
+										<ul id="mainmenu">
+											<!-- <ul id="img"></ul> -->
+									</ul>
+								
 								</div>
 							</div>
+						
+					
+						</div>
+					</div>
+					</div>
+						</section>
+
+
 							
 							
-							<div class="col-lg-4 col-md-6 special-grid drinks">
+							<!-- <div class="col-lg-4 col-md-6 special-grid drinks">
 								<div class="gallery-single fix">
 									<img src="images/pizza2.jpg" class="img-fluid" alt="Image">
 									<div class="why-text">
@@ -367,7 +395,7 @@
 									</div>
 								</div>
 							</div>-->
-							<div class="col-lg-4 col-md-6 special-grid lunch">
+							<!-- <div class="col-lg-4 col-md-6 special-grid lunch">
 								<div class="gallery-single fix">
 									<img src="images/drink2.jpg" class="img-fluid" alt="Image">
 									<div class="why-text">
@@ -395,8 +423,8 @@
 										<h5> 15.99 EGP</h5>
 										<div class="buttons"> <button id="cartt" class="cart-button"> <span class="add-to-cart">Add to cart</span>  </button> </div>
 									</div>
-								</div>
-							</div>
+								</div> -->
+							<!-- </div> --> 
 							<!--<div class="col-lg-4 col-md-6 special-grid lunch">
 								<div class="gallery-single fix">
 									<img src="images/drink3.jpg" class="img-fluid" alt="Image">
@@ -415,7 +443,7 @@
 									</div>
 								</div>
 							</div>-->
-								<div class="col-lg-4 col-md-6 special-grid dinner">
+								<!-- <div class="col-lg-4 col-md-6 special-grid dinner">
 									<div class="gallery-single fix">
 										<img src="images/deal1.jpg" class="img-fluid" alt="Image">
 										<div class="why-text">
@@ -449,8 +477,8 @@
 											<h5>45.00 EGP </h5>
 											<div class="buttons"> <button id="cartt" class="cart-button"> <span class="add-to-cart">Add to cart</span>  </button> </div>
 										</div>
-									</div>
-								</div>
+									</div> -->
+								<!-- </div> -->
 							
 					   
 							<!--	<div class="col-lg-4 col-md-6 special-grid dinner">
@@ -499,13 +527,12 @@
 								</div>-->
 		
 
-
 							
-						</div>
+						<!-- </div>
 					</div>
 				</div>
 
-					</section>
+					</section> -->
 					<!-- End Menu -->
 					
 					
@@ -520,23 +547,23 @@
   <form action="/action_page.php" class="form-container">
     <h1 id="shopp"><br> Shopping Cart</h1>
 	<br>
-	<h1 id="shop"> Pizza Hut</h1>
+	<h1 id="shop"></h1>
 	<br>
-	<div class="containerr">
+	<div id="containe" class="containerr">
 		<section id="cart"> 
-			<article class="product">
-	<footer class="content">
-		<span class="qt-minus">-</span>
-		<span class="qt">2</span>
-		<span class="qt-plus">+</span>
-		<h1 id="shop">&nbsp Super <br>&nbsp Supreme</h1>
+			<article id="prod" class="product">
+	<footer id="end" class="content">
+		<span id="min" class="qt-minus"></span>
+		<span class="qt">1</span>
+		<span class="qt-plus" id="plus"></span>
+		<h1 id="shop1"></h1>
 
-		<h2 id="price" class="full-price">
-			130.00 EGP
+		<h2 id="price2" class="full-price">
 		</h2>
-		<h2 class="price">
-			65.00 EGP
-		</h2>
+		<h2 id="price1" class="price">
+		</h2>	
+	
+	
 	</footer>
 		<a class="remove">
 
@@ -547,16 +574,18 @@
 </article>
 </section>
 </div>
+
+
 <footer id="site-footer">
 	<div class="containerr clearfix">
 		<div class="right">
-			<h1 id="blac" class="total">Total: <span>130</span>EGP</h1>
+			<h1 id="blac" class="total">Total: <span id="total"></span>EGP</h1>
 		</div>
 
 	</div>
 </footer>
 <a href="../pizza hut/payment.html"><button type="button" id="check" >Check Out</button></a>
-    <button id="close" type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <button id="check" type="button" onclick="closeForm()">Close</button>
   </form>
 </div>
 								
@@ -580,25 +609,25 @@
 												<div class="img-box p-1 border rounded-circle m-auto">
 													<img class="d-block w-100 rounded-circle" src="images/quotations-button.jpeg" alt="">
 												</div>
-												<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">youssef</strong></h5>
-												<h6 class="text-dark m-0">artist</h6>
-												<p id="blac" class="m-0 pt-3">perfect pizza i love it </p>
+												<h5 id="nam1" class="mt-4 mb-0"><strong class="text-warning text-uppercase"></strong></h5>
+												<!-- <h6 class="text-dark m-0">artist</h6> -->
+												<p id="rev1" class="m-0 pt-3"></p>
 											</div>
 											<div class="carousel-item text-center">
 												<div class="img-box p-1 border rounded-circle m-auto">
 													<img class="d-block w-100 rounded-circle" src="images/quotations-button.jpeg" alt="">
 												</div>
-												<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">gendy</strong></h5>
-												<h6 class="text-dark m-0">programmer</h6>
-												<p id="blac" class="m-0 pt-3">not bad</p>
+												<h5 id="nam2" class="mt-4 mb-0"><strong class="text-warning text-uppercase"></strong></h5>
+												<!-- <h6 class="text-dark m-0">programmer</h6> -->
+												<p id="rev2" class="m-0 pt-3"></p>
 											</div>
 											<div class="carousel-item text-center">
 												<div class="img-box p-1 border rounded-circle m-auto">
 													<img class="d-block w-100 rounded-circle" src="images/quotations-button.jpeg" alt="">
 												</div>
-												<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">yahia hesham</strong></h5>
-												<h6 class="text-dark m-0">student</h6>
-												<p id="blac" class="m-0 pt-3"> good</p>
+												<h5 id="nam3" class="mt-4 mb-0"><strong class="text-warning text-uppercase"></strong></h5>
+												<!-- <h6 class="text-dark m-0">student</h6> -->
+												<p id="rev3" class="m-0 pt-3"> </p>
 											</div>
 										</div>
 										<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
@@ -709,9 +738,360 @@
 	<script src="js/pop.js"></script>
 	<script src="js/cart.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/fav.js"></script>
 	
 
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+	  function refreshPage(){
+	  window.location.reload();
+  } 
+	</script>
+  
+	<script id="MainScript">
+	  // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+	  // import { getDatabase,ref } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+	  // import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+		// Your web app's Firebase configuration
+	  const firebaseConfig = {
+		apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
+		authDomain: "finalproject-93617.firebaseapp.com",
+		databaseURL: "https://finalproject-93617-default-rtdb.firebaseio.com",
+		projectId: "finalproject-93617",
+		storageBucket: "finalproject-93617.appspot.com",
+		messagingSenderId: "429854078677",
+		appId: "1:429854078677:web:3b8bd691663d9e918b945c"
+	  };
+	  
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  // firebase.auth(createUserWithEmailAndPassword);
+	  const auth = firebase.auth();
+	  const database=firebase.database();
+	  // const auth = getAuth();
+  
+	//   var firebaseRef=firebase.database().ref('users');
+		// const database = getDatabase(app);
+		// const auth = getAuth();	
+		function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+let value1 = generateRandomInteger(1000);
+let value2=generateRandomInteger(1000);
+var mail=localStorage.getItem("textvalue");
+		// var nam=localStorage.getItem("userid");
+		// var password=localStorage.getItem("userpass");
+			var me=localStorage.getItem("restuarantemail");
+	var farah=localStorage.getItem("restuarantpass");
+	var id;
+
+
+		//********************* get login data*****************************
+		firebase.database().ref().child("restaurant").orderByChild("email").equalTo(me).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+
+        var cellNum = childSnapshot.val().CellNum;  
+        var username = childSnapshot.child("fullname").val();
+		var category = childSnapshot.child("category").val();
+        var location = childSnapshot.child("direction").val();
+
+     
+        $("#list").append( username ); 
+		$("#shop").append( username ); 
+		$("#catego").append( category ); 
+		 $("#locatio").append( location ); 
+		 $("#bla").append( category ); 
 	
 
+
+                 
+      });                
+
+});
+firebase.auth().signInWithEmailAndPassword(me, farah)			
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+	 var shit=localStorage.setItem("shit",user.uid);
+	})
+	var shit2=localStorage.getItem("shit");
+
+		 // ****************Get menu Data **********************************//
+function SelectAllData(){
+			firebase.database().ref().child("restaurant").child(shit2).child("menu").once("value",
+      function(AllRecords){
+        AllRecords.forEach(
+          function(CurrentRecord){
+            var dis=CurrentRecord.val().Description;
+            var name=CurrentRecord.val().productname;
+            var cat=CurrentRecord.val().Category;
+            var price=CurrentRecord.val().product_price;
+            var size=CurrentRecord.val().productsize;
+            var image=CurrentRecord.val().image;
+
+AddItemsTolist(dis,price,name,size,cat,image);
+       
+          }
+  
+        );
+  
+      });
+    }
+
+
+	window.onload = SelectAllData;
+
+function AddItemsTolist(dis,price,name,size,cat,image){
+  var ul= document.getElementById('mainmenu');  
+//   var di=document.getElementById('img'); 
+  var _name=document.createElement('h1');
+  var _price=document.createElement('h5');
+//   var _category=document.createElement('li');
+  var _dis=document.createElement('p');
+  var _image=document.createElement('img');
+  var _size=document.createElement('p');
+  var _div=document.createElement('div');
+  var btn=document.createElement('button');
+  var bor=document.createElement('border-bottom');
+  
+
+  btn.addEventListener('click',function handleClick(){
+	var ull= document.getElementById('shop1'); 	
+	var span1=document.getElementById('plus');
+	var span2=document.getElementById('min');
+	var h= document.getElementById('price1'); 
+	var h2= document.getElementById('price2'); 
+	var tot= document.getElementById('total'); 
+
+	var _name=document.createElement('h1');
+	var price1=document.createElement('h2');
+	var price2=document.createElement('h2');
+	var plus=document.createElement('p');
+	var min=document.createElement('p');
+	var total=document.createElement('span');
+
+
+	_name.innerHTML=name;
+	plus.innerHTML="+";
+	min.innerHTML="-";
+	price2.innerHTML=price;
+	price1.innerHTML=price;
+	price1.style.color="#000";
+
+	var counter=2;
+	plus.addEventListener('click',function handleClick(){
+		var totalplus=price*counter;
+			price2.innerHTML=totalplus;
+			total.innerHTML=totalplus;
+			h2.appendChild(price2);
+			tot.appendChild(total);
+			counter++;
+		
+	})
+
+
+
+	ull.appendChild(_name);
+	span1.appendChild(plus);
+	span2.appendChild(min);
+	h.appendChild(price1);
+	h2.appendChild(price2);
+
+
+})
+
+
+
+  btn.innerHTML='Add to cart';
+	_name.innerHTML=name;
+	_image.src=image;
+	_image.innerHTML;
+	_image.style.height="100px"
+	_image.style.width="76px"
+	// image.style.
+	_name.style.color="#000";
+	_name.style.fontWeight="bold";
+	_price.style.color="#000";
+	_dis.style.color="#000";
+	_size.style.color="#000";	
+	_dis.innerHTML='Description:'+dis;
+	_price.innerHTML='price:'+price;
+	_size.innerHTML='size:'+size;
+	
+	bor.innerHTML='';
+	bor.style.color="#ccc";
+	bor.style.width="1px"
+	
+  btn.type="submit";
+  btn.style.color="#ffff";
+  btn.style.backgroundColor="#53e88c";
+  btn.style.cursor="pointer";
+  btn.style.borderColor="#53e88c";
+  btn.style.borderRadius="1.25rem";
+  btn.style.minWidth="120px";
+  btn.style.marginLeft="770px";
+  btn.style.marginRight="0.5rem";
+  btn.style.padding="0.625rem ";
+  _div.innerHTML='';
+	_div.style.height="40px";
+
+  ul.appendChild(_image);
+  ul.appendChild(_name);
+  ul.appendChild(_price);
+  ul.appendChild(_dis);
+  ul.appendChild(_size);
+  ul.appendChild(btn);
+  ul.appendChild(bor);
+  ul.appendChild(_div);
+
+
+  
+}
+		
+	//********************************add review to db****************************************************
+	
+	firebase.database().ref().child("users").orderByChild("email").equalTo(mail).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+		var cellNum = childSnapshot.val().CellNum;  
+        var username = childSnapshot.child("username").val();
+	post.addEventListener('click',(e) =>{
+		var review=document.getElementById("review").value;
+		var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+		firebaseRef.child("reviews").child("review"+value1).child("name").set(username);
+      firebaseRef.child("reviews").child("review"+value1).child("review_content").set(review);
+
+	});
+
+}); 
+});
+firebase.database().ref().child("users").orderByChild("email").equalTo(mail).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+		var cellNum = childSnapshot.val().CellNum;  
+        var username = childSnapshot.child("username").val();
+	post.addEventListener('click',(e) =>{
+		var review=document.getElementById("review").value;
+		var firebaseRef= firebase.database().ref( 'Admin/' );
+		firebaseRef.child("reviews").child("review"+value1).child("name").set(username);
+      firebaseRef.child("reviews").child("review"+value1).child("review_content").set(review);
+
+	});
+
+}); 
+});
+
+//**************************************** get review data *******************************************************
+
+firebase.database().ref().child("restaurant").child(shit2).child("reviews").once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+		var cellNum = childSnapshot.val().CellNum;  
+        var review1 = childSnapshot.child("review_content").val();
+		var review2 = childSnapshot.child("review_content").val();
+		var name1 = childSnapshot.child("name").val();
+   
+		$("#rev1").append( review1 ); 
+		$("#rev2").append( review2 ); 
+		$("#nam1").append( name1 );
+		$("#nam2").append( name1 ); 
+ 
+
+
+
+
+});                
+
+});
+
+//**************************************** get fav button *******************************************************		
+var iid=localStorage.getItem("useridd");
+
+firebase.database().ref().child("restaurant").orderByChild("email").equalTo(me).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+        var username = childSnapshot.child("fullname").val();
+
+		favvv.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'users/'+iid );
+      firebaseRef.child("favourite").child("fav"+value2).child("restaurant_name").set(username);
+
+
+		});
+
+
+                 
+      });                
+
+});
+//**************************************** get rating *******************************************************	
+firebase.database().ref().child("restaurant").orderByChild("email").equalTo(me).once("value", function (snapshot) {        
+      snapshot.forEach(function(childSnapshot) {
+        var username = childSnapshot.child("fullname").val();	
+rat1.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+      firebaseRef.child("rating").child("restaurant_name"+username).set(5);
+
+
+		});
+		rat2.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+      firebaseRef.child("rating").child("restaurant_name"+username).set(4);
+
+
+		});rat3.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+      firebaseRef.child("rating").child("restaurant_name"+username).set(3);
+
+
+		});rat4.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+      firebaseRef.child("rating").child("restaurant_name"+username).set(2);
+
+
+		});rat5.addEventListener('click',()=>{
+			// var click=document.getElementById("").value;
+			var firebaseRef= firebase.database().ref( 'restaurant/'+shit2 );
+      firebaseRef.child("rating").child("restaurant_name"+username).set(1);
+
+
+		});
+	});                
+
+});
+
+
+
+
+
+
+// function likee(){
+// 	createUserWithEmailAndPassword(auth)
+//   .then((userCredential) => {
+//     // const user = userCredential.user;
+// 	set(ref(database, 'users/' + pass),{
+// 		favourite:favourite,
+
+// 	})
+// 	alert('add to favourite');
+// 	//window.location.href="F:/Foooody%23/FOO0DY%23%20%20with%20out%20login/code.html";
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+// 	alert(errorMessage);
+//     // ..
+//   });
+// }
+	
+
+
+	</script>
 	</body>
 </html>

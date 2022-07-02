@@ -440,7 +440,11 @@ img {
 }
 ul {
   list-style: none;
-  padding: 0;
+  padding: 0px;
+}
+#list{
+  padding: 30px;
+
 }
 
 .ms-scrollable,
@@ -7454,4 +7458,7 @@ body:not(.ms-settings-open) .ms-settings-toggle:hover{
   .ms-switch .ms-status-switch{
     left: 75%;
   }
+}
+#mainname{
+  color: #000000;
 }

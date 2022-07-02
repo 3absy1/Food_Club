@@ -7452,3 +7452,6 @@ body:not(.ms-settings-open) .ms-settings-toggle:hover{
     left: 75%;
   }
 }
+#list{
+  padding: 25px;
+}
