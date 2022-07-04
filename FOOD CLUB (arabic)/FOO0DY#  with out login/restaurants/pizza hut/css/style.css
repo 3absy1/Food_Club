@@ -1363,7 +1363,7 @@ blockquote {
 	font-size: 30px;
 }
 #fh5co-menus {
-    padding: 0em 0;
+    padding: 0em 180px;
   }
   @media screen and (max-width: 768px) {
     #fh5co-menus {
@@ -1437,7 +1437,7 @@ blockquote {
   #fh5co-menus .fh5co-food-menu ul li {
     padding: 0 0 20px 0;
     margin: 0 0 20px 0;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px dotted rgb(159, 158, 158);
     display: block;
     float: left;
     width: 100%;

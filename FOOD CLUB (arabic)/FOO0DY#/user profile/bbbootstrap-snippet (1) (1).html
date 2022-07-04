@@ -11,7 +11,7 @@
                                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
                                 <style>body {
     background: linear-gradient(to top right, #4a7863 0%, #ffffff 100%);
-    height: 673px;
+    height: 755px;
 }
 
 .form-control:focus {
@@ -59,34 +59,39 @@
                                 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="Images/download.png"><span class="font-weight-bold">youssef</span><span class="text-black-50">youssef1@gmail.com</span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="Images/download.png"><span class="font-weight-bold" id="name"></span><span class="text-black-50" id="email"></span><span> </span></div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">معلومات الحساب</h4>
+                    <h4 class="text-right">account info</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">الاسم </label><input type="text" class="form-control" placeholder="الاسم" value=""></div>
+                    <div class="col-md-6"><label class="labels">User Name</label><input id="yourname" type="text" class="form-control" placeholder="username" value=""></div>
+
+
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">الموبايل</label><input type="text" class="form-control" placeholder="ادخلل رقم الموبايل" value=""></div>
-                    
-                    <div class="col-md-12"><label class="labels">العنوان</label><input type="text" class="form-control" placeholder="ادخل العنوان " value=""></div>
+                    <span id="phone"></span>
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input id="mymobile" type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                    <span id="birthday"></span>
+                    <div class="col-md-12"><label class="labels">birthday</label><input id="birth" type="text" class="form-control" placeholder="enter birthday " value=""></div>
+                    <!-- <div class="col-md-12"><label class="labels">Email</label><input id="mail" type="text" class="form-control" placeholder="enter email " value=""></div> -->
+                    <span id="address"></span>
+
+                    <div class="col-md-12"><label class="labels">Address</label><input id="myaddress" type="text" class="form-control" placeholder="enter address " value=""></div>
+
                   
-                  
-                    <div class="col-md-12"><label class="labels">البريد الالكتروني</label><input type="text" class="form-control" placeholder="ادخل البريد الالكتروني" value=""></div>
-                    <div class="col-md-12"><label class="labels">كلمه السر </label><input type="text" class="form-control" placeholder="ادخل كلمه السر  " value=""></div>
-                    <div class="col-md-12"><label class="labels">تأكيد كلمه السر </label><input type="text" class="form-control" placeholder="تأكيد كلمه السر  " value=""></div>
+                    <div class="col-md-12"><label class="labels">Password</label><input id="mypassword" type="text" class="form-control" placeholder="enter new Password" value=""></div>
+                    <div class="col-md-12"><label class="labels">Confirm Password</label><input id="myconfirmpassword" type="text" class="form-control" placeholder="confirm Password" value=""></div>
 
                    
                 </div>
                
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">حفظ</button></div>
+                <div class="mt-5 text-center"><button id="updata" class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>
-       
-       
         </div>
+        
     </div>
 </div>
 </div>
@@ -95,5 +100,208 @@
                                 <script type='text/javascript' src=''></script>
                                 <script type='text/javascript' src=''></script>
                                 <script type='text/Javascript'></script>
+
+
+                                <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+                                <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+                                <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+                                <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+                              
+                                <script id="MainScript">
+                                  // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+                                  // import { getDatabase,ref } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+                                  // import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+                                    // Your web app's Firebase configuration
+                                  const firebaseConfig = {
+                                    apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
+                                    authDomain: "finalproject-93617.firebaseapp.com",
+                                    databaseURL: "https://finalproject-93617-default-rtdb.firebaseio.com",
+                                    projectId: "finalproject-93617",
+                                    storageBucket: "finalproject-93617.appspot.com",
+                                    messagingSenderId: "429854078677",
+                                    appId: "1:429854078677:web:3b8bd691663d9e918b945c"
+                                  };
+                                  
+                                  // Initialize Firebase
+                                  firebase.initializeApp(firebaseConfig);
+                                  const auth = firebase.auth();
+                                  const database=firebase.database();
+
+
+                                
+                                //   const updatebtn=document.getElementById("updata");
+                                //   const database=firebase.database();
+                                //   const root=database.ref('users');
+                                  // const auth = getAuth();
+                                  var pass=localStorage.getItem("textvalue");
+                                  var idd=localStorage.getItem("userid");
+                          //get login data 
+                          firebase.database().ref().child("users").orderByChild("email").equalTo(pass).once("value", function (snapshot) {        
+                                snapshot.forEach(function(childSnapshot) {
+                          
+                                  var cellNum = childSnapshot.val().CellNum;  
+                                  var username = childSnapshot.child("username").val();
+                                  var birthday = childSnapshot.child("birthday").val();
+                                  var phone = childSnapshot.child("phone").val();
+                                  var id = childSnapshot.child("id").val();
+                                  var address = childSnapshot.child("address").val();
+
+                                 
+                                  $("#name").append( username );           
+                                  $("#email").append( pass );  
+                                  $("#phone").append( phone ); 
+                                  $("#birthday").append( birthday );   
+                                  $("#address").append( address );  
+
+
+                                  updata.addEventListener('click',(e)=>{
+                                    var name=document.getElementById("yourname").value;
+                                    var yourphone=document.getElementById("mymobile").value;
+                                    var yourbirth=document.getElementById("birth").value;
+                                    var youraddress=document.getElementById("myaddress").value;
+                                    var yourpassword=document.getElementById("mypassword").value;
+                                    var yourconfirm=document.getElementById("myconfirmpassword").value;
+
+                                  if(valdition_field(name)==false||valdition_field(yourphone)==false||valdition_field(youraddress)==false||valdition_field(yourbirth)==false||valdition_field(yourpassword)==false||valdition_field(yourconfirm)==false){
+                                alert('one or more fields is Outta Line')
+                                return
+                                }
+                                else if(yourpassword!=yourconfirm){
+                                    alert('password not the same')
+                                    return
+                                } 
+                                else{                        
+                              updata.addEventListener('click',(e)=>{
+                                var name=document.getElementById("yourname").value;
+                                  var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("username").set(name);
+                                 
+                                });
+                                updata.addEventListener('click',(e)=>{
+                                    var yourphone=document.getElementById("mymobile").value;
+                                    var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("phone").set(yourphone);
+                            });
+                            updata.addEventListener('click',(e)=>{
+                                  var yourbirth=document.getElementById("birth").value;
+                                var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("birthday").set(yourbirth);
+                            });
+                            updata.addEventListener('click',(e)=>{
+                                  var youraddress=document.getElementById("myaddress").value;
+                                var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("address").set(youraddress);
+                            });
+                            updata.addEventListener('click',(e)=>{
+                                  var yourpassword=document.getElementById("mypassword").value;
+                                var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("password").set(yourpassword);
+                            });
+                            updata.addEventListener('click',(e)=>{
+                                  var yourconfirm=document.getElementById("myconfirmpassword").value;
+                                var firebaseRef= firebase.database().ref('users/'+idd );
+                                    firebaseRef.child("confirmpassword").set(yourconfirm);
+                            });
+                            alert('updata Successful');
+
+                        }
+                        });
+                        
+
+
+                             //valdition
+                                        function valdition_email(email){
+                                    expression= /^[^@]+@\w+(\.\w+)+\w$/;
+                                    if(expression.test(email) == true){
+                                        return true
+                                    }else{
+                                        return false
+                                    }
+                                    }
+                                    function valdition_password(password){
+                                        if (password<=8){
+                                        return false
+                                        }else{
+                                        return true
+                                        }
+                                    }
+                                    function valdition_field(filed){
+                                        if(filed==null){
+                                        return false
+                                        }
+                                        if(filed<=0){
+                                        return false
+                                        }else{
+                                        return true
+                                        }
+                                    }
+
+
+                                });                
+                          
+                          });
+
+                           //  updatebtn.addEventListener('click',(e)=>{
+                //             e.preventDefault();
+                //             const newData={
+                //                     username:yourname,
+                //                     phone:yourphone,
+                //                     address:address,
+                //                     birthday:yourbirth,
+                //                     password:yourpassword,
+                //                     confirmpassword:yourconfirm
+
+                //             }
+                //             root.child(id).update(newData);
+
+                //           });
+
+                                                    // firebase.database().ref("users/" + id).update({
+                                //     username:yourname,
+                                //     phone:yourphone,
+                                //     address:address,
+                                //     birthday:yourbirth,
+                                //     password:yourpassword,
+                                //     confirmpassword:yourconfirm
+                                // }, (error) => {
+                                // if (error) {
+                                // // The write failed...
+                                // alert('error');
+                                // } else {
+                                // // Data saved successfully!
+                                // alert('data saved successfully!');
+                                // }
+                                // });
+                              
+
+
+
+
+
+                    //         updatebtn.addEventListener('click',(e)=>{
+
+                    //    function writeNewPost(phone, username, birthday, password, confirmpassword) {
+                    //                 // A post entry.
+                    //                 var postData = {
+                    //                     username:yourname,
+                    //                     phone:yourphone,
+                    //                     birthday:yourbirth,
+                    //                     password:yourpassword,
+                    //                     confirmpassword:yourconfirm
+                    //                 };
+
+                    //                 // Get a key for a new Post.
+                    //                 var newPostKey = firebase.database().ref().child('users').push().key;
+
+                    //                 // Write the new post's data simultaneously in the posts list and the user's post list.
+                    //                 var updates = {};
+                    //                 updates['/users/' + newPostKey] = postData;
+                    //                 updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+                    //                 return firebase.database().ref().update(updates);
+                    //                 }
+                    //             });
+                                                  
+                          </script>                        
                                 </body>
                             </html>

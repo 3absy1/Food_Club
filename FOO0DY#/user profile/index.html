@@ -202,79 +202,9 @@ firebase.database().ref().child("users").orderByChild("email").equalTo(pass).onc
 });
 
 
-      
-        // // ****************Get All Data *************//
-        // function SelectAllData(){
-        //   firebase.database().ref('users').once('value',
-        //   function(AllRecords){
-        //     AllRecords.forEach(
-        //       function(CurrentRecord){
-               
-        //         var name=CurrentRecord.val().fullname;
-             
-      
-        //         // AddItemsToTable(dir,mail,name,pho,cat,compas,pass);
-        //         AddItemsTolist(name);
-    
-              
-        //       }
-      
-        //     );
-      
-        //   });
-        // }
-        //  window.onload = SelectAllData;
-        // function AddItemsTolist(name){
-        //   var ul= document.getElementById('list');
-         
-        //   var _name=document.createElement('h5');
-         
-    
-    
-        //   _name.innerHTML=name;
-         
-         
-        
-    
-        //   ul.appendChild(_name);
-         
-          
-    
-    
-        // }
         </script>
-    
-      
-
 
     </body>
-    <!-- <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-
-      const firebaseConfig = {
-	  apiKey: "AIzaSyCDajRe6q98Of6b7sNcKbpMU-88ube3gcg",
-	  authDomain: "finalproject-93617.firebaseapp.com",
-	  databaseURL: "https://finalproject-93617-default-rtdb.firebaseio.com",
-	  projectId: "finalproject-93617",
-	  storageBucket: "finalproject-93617.appspot.com",
-	  messagingSenderId: "429854078677",
-	  appId: "1:429854078677:web:3b8bd691663d9e918b945c"
-	};
-  // Initialize Firebase
-	const app = initializeApp(firebaseConfig);
-
-  function getdata(){
-    firebase.database().ref('/').once('value',function(snapshoot){
-      snapshoot.forEach(function(childSnapshot){
-        var childKey=childSnapshot.key;
-        var childData=childSnapshot.val();
-        document.getElementById("data").innerHTML=childData['username'];
-      })
-
-    })
-  }
-  
-      </script> -->
+   
 
 </html>

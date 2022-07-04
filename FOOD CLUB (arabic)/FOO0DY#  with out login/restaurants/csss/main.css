@@ -829,7 +829,7 @@ legend {
 }
 
 .s009 form .inner-form {
-  width: 100%;
+  width: 170%;
   margin-bottom: 250px;
 }
 
@@ -927,6 +927,7 @@ legend {
 
 .s009 form .inner-form .basic-search .input-field input {
   padding: 10px 80px 10px 40px;
+  color: #fff;
 }
 
 .s009 form .inner-form .basic-search .input-field .icon-wrap {
@@ -1140,6 +1141,12 @@ legend {
     width: 100%;
     margin-bottom: 20px;
   }
+}
+#list{
+  color: #000;
+}
+#lll{
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=Searchs_009.css.map */

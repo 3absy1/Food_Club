@@ -260,9 +260,9 @@
               <h6>request</h6>
               <h6></h6>
               <br>
-              <!-- <form  action="https://formspree.io/f/meqnnlww" method="POST"> -->
-                <form onsubmit="sendemail(); reset(); return false;" >
-                
+                <form  action="https://formspree.io/f/xvoljpew" method="POST" >
+                  <!-- <label for="username">Username:</label>-->
+  <!-- <input type="text" id="username" name="username" required>  -->         
                 <!-- <input type="text" name="Name"> -->
               <ul class="invoice-date" id="list">
                 <!-- <div  id="recaptcha-container"></div> -->
@@ -468,6 +468,7 @@ function sendEmail() {
       const p=document.createElement('h1');
       const pp=document.createElement('p');
       const di=document.createElement('div');
+      const inp=document.createElement('input');
       
 
 
@@ -504,6 +505,10 @@ function sendEmail() {
       bt.style.minWidth="120px";
       bt.style.marginRight="5px"
       bt.style.padding="0.625rem ";
+      inp,innerHeight='';
+      inp.required;
+      inp.id="username";
+      inp.name="username";
 
       //**************************
       p.innerHTML='';
@@ -522,6 +527,7 @@ function sendEmail() {
       // ul.appendChild(_comfirmpass);
       ul.appendChild(_category);
       ul.appendChild(ppp);
+      ul.appendChild(inp);
       ul.appendChild(btn);
       ul.appendChild(bt);
       ul.appendChild(p);

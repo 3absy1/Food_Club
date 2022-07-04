@@ -410,4 +410,19 @@ body {
         color:#53e88c ;
         text-decoration: none;
     }
+    #facebook{
+        margin-left: 55px;
+        background-color: #53e88c;
+        border-color: #53e88c;
+        width: 200px;
+        height: 42px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+    }
+    #linky{
+        text-decoration:none;
+        color: #ffffff;
+    }
+
   

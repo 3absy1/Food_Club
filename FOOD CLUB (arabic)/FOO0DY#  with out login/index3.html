@@ -69,7 +69,7 @@
 			<!-- SIGN IN -->
 			
 			<div class="col align-items-center flex-col sign-in">
-				<a id="whit" href="F:/Foooody%23/FOO0DY%23%20%20with%20out%20login/index3.html">English</a>
+				<a id="whit" href="F:/Foooody%23@/FOO0DY%23%20%20with%20out%20login/index3.html">English</a>
 
 				<div class="form-wrapper align-items-center">
 					<div class="form sign-in">
@@ -82,7 +82,7 @@
 							<input type="password" id="passwordd" placeholder="كلمة السر">
 						</div>
 						<!--<a href="E:/Foooody%23/FOO0DY%23/index1.html">-->
-							<button type="submit" id="signIn">تسجيل الدخول</button>
+							<button type="submit" id="signIn" onclick="getdata()">تسجيل الدخول</button>
 						
 					</a> 
 						
@@ -107,8 +107,10 @@
 				<br>
 				<h2 id="sign"> او سجل عن طريق </h2>
 				<div id="signin">
-				<a id="facebook" href="#"><img id="face" src="images/logo-facebook.png"  alt="images"></a>
-				<a id="google" href="#"><img id="google" src="images/goog.png" alt="images"></a>
+					<button id="facebook"><a id="linky" href="index4.html"> كضيف </a><br></button>
+					<br>
+					<br>
+					<button id="facebook"><a id="linky" href="simple-login-page-in-html (1)/simple-login-page-in-html/index.html"> كمطعم</a></button>
 			    </div>
 				<div class="form-wrapper">
 		
@@ -149,6 +151,13 @@
 		<!-- END CONTENT SECTION -->
 	</div>
 <!-- partial -->
+<script>
+	function getdata(){
+	var fastname=document.getElementById("emaill").value;
+	localStorage.setItem("textvalue",fastname);
+	return false;
+  }
+</script>
   <script  src="./script.js"></script>
   <script src="build/js/intlTelInput.js"></script>
   <script>
@@ -183,7 +192,7 @@
 	// Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 	import { getDatabase ,set ,ref,update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-	import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+	import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword ,onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 
 	// TODO: Add SDKs for Firebase products that you want to use
@@ -204,8 +213,16 @@
 	const app = initializeApp(firebaseConfig);
 	const database = getDatabase(app);
 	const auth = getAuth();
+	localStorage.removeItem("mealname");
+
 
 	signUp.addEventListener('click',(e) =>{
+		// Generate a number between 0 and 10, including 10
+function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+let value1 = generateRandomInteger(1000);
      var email = document.getElementById('email').value;
      var password = document.getElementById('password').value;
      var username= document.getElementById('username').value;
@@ -234,16 +251,19 @@
     // Signed up 
     const user = userCredential.user;
 	set(ref(database, 'users/' + user.uid),{
+		id:value1,
 		username: username,
 		email:email,
+		address:address,
 		password:password,
 		confirmpassword:confirmpassword,
 		birthday:birthday,
 		phone: phone,
 
+
 	})
-	alert('user created!');
-	window.location.href="F:/Foooody%23/FOOD%20CLUB%20(arabic)/FOO0DY%23/index1.html";
+	alert('تم بنجاح ! اذهب لصفحة تسجيل الدخول');
+	// location.href="F:/Foooody%23@/FOO0DY%23/index1.html";
     // ...
   })
   .catch((error) => {
@@ -268,14 +288,14 @@
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-
+    localStorage.setItem("useridd",user.uid);
 	const dt=new Date();
 	update(ref(database, 'users/' + user.uid),{
 	last_login: dt,
 })
 
-	alert('User Login Successful')
-    window.location.href="F:/Foooody%23/FOOD%20CLUB%20(arabic)/FOO0DY%23/index1.html";
+	alert('تم بنجاح')
+    location.href="F:/Foooody%23@/FOOD%20CLUB%20(arabic)/FOO0DY%23/index1.html";
 
 
     // ...
@@ -287,6 +307,17 @@
     // ..
   });
 	});
+	onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
 
 	 //valdition
 	 function valdition_email(email){
@@ -314,35 +345,6 @@
       return true
     }
   }
-
-
-
-
-// 	signIn.addEventListener('click',(e) =>{
-// 	var emaill = document.getElementById('emaill').value;
-//     var passwordd = document.getElementById('passwordd').value;
-// 	signInWithEmailAndPassword(auth, emaill, passwordd)
-//     .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-
-// 	const dt=new Date();
-// 	updata(ref(database, 'users/' + user.uid),{
-// 	last_login_date:dt,
-// })
-// alert('User Login Successful');
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-// 	alert('errorMessage');
-
-//   });
-
-
-// 	});
-
 
 
   </script>

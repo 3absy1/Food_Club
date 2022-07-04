@@ -73,7 +73,7 @@
 			<!-- SIGN IN -->
 			
 			<div class="col align-items-center flex-col sign-in">
-				<a id="whit" href="F:/Foooody%23/FOOD%20CLUB%20(arabic)/FOO0DY%23%20%20with%20out%20login/index3.html">Arabic</a>
+				<a id="whit" href="F:/Foooody%23@/FOOD%20CLUB%20(arabic)/FOO0DY%23%20%20with%20out%20login/index3.html">Arabic</a>
 
 				<div class="form-wrapper align-items-center">
 					<!-- <form method="get" action="display.html"> -->
@@ -113,8 +113,10 @@
 				<br>
 				<h2 id="sign"> OR </h2>
 				<div id="signin">
-					<a id="facebook" href="index4.html">  as guest </a><br>
-					<a id="facebook" href="F:/Foooody%23@/FOO0DY%23%20%20with%20out%20login/simple-login-page-in-html%20(1)/simple-login-page-in-html/index.html"> Login as Restaurant </a>
+					 <button id="facebook"><a id="linky" href="index4.html">  as guest </a><br></button>
+					 <br>
+					 <br>
+					 <button id="facebook"><a id="linky" href="F:/Foooody%23@/FOO0DY%23%20%20with%20out%20login/simple-login-page-in-html%20(1)/simple-login-page-in-html/index.html"> Login as Restaurant </a></button>
 				<!-- <a id="google" href="#"><img id="google" src="images/goog.png" alt="images"></a> -->
 			    </div>
 				<div class="form-wrapper">
@@ -225,6 +227,7 @@
 	const app = initializeApp(firebaseConfig);
 	const database = getDatabase(app);
 	const auth = getAuth();
+	localStorage.removeItem("mealname");
 
 	signUp.addEventListener('click',(e) =>{
 		// Generate a number between 0 and 10, including 10
@@ -358,35 +361,6 @@ let value1 = generateRandomInteger(1000);
       return true
     }
   }
-
-
-
-
-// 	signIn.addEventListener('click',(e) =>{
-// 	var emaill = document.getElementById('emaill').value;
-//     var passwordd = document.getElementById('passwordd').value;
-// 	signInWithEmailAndPassword(auth, emaill, passwordd)
-//     .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-
-// 	const dt=new Date();
-// 	updata(ref(database, 'users/' + user.uid),{
-// 	last_login_date:dt,
-// })
-// alert('User Login Successful');
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-// 	alert('errorMessage');
-
-//   });
-
-
-// 	});
-
 
 
   </script>

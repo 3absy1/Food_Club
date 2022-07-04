@@ -1703,7 +1703,7 @@
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ffffff !important;
+			color: #000000 !important;
 		}
 
 		a.special:not(.button) {
@@ -3794,6 +3794,9 @@
 		color: #ffffff;
 		text-decoration: none;
 	}
-	
+	#seart{
+		color: #ffffff;
+		text-decoration: none;
+	}
 	
 	
